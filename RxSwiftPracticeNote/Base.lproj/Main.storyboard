@@ -38,7 +38,7 @@
                                     <constraint firstAttribute="height" constant="24" id="inR-3t-9p0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自由入力：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7D5-Oe-kzr">
@@ -67,7 +67,7 @@
                                 </constraints>
                                 <segments>
                                     <segment title="挨拶の始まり選択"/>
-                                    <segment title="お名前を入力"/>
+                                    <segment title="自由入力にする"/>
                                 </segments>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ご挨拶のはじまり：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0q-wO-PhX">
@@ -88,27 +88,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="HSi-fX-kwa">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HSi-fX-kwa">
                                 <rect key="frame" x="45" y="210" width="287" height="28"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8to-Qw-XkP">
-                                        <rect key="frame" x="0.0" y="0.0" width="54" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8to-Qw-XkP">
+                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" title="おはよう"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sAi-aD-Tph">
-                                        <rect key="frame" x="69" y="0.0" width="67" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="74.5" y="0.0" width="64" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" title="こんにちは"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aXe-8i-ITb">
-                                        <rect key="frame" x="151" y="0.0" width="67" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="148.5" y="0.0" width="64.5" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" title="こんばんは"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MS5-48-OF9">
-                                        <rect key="frame" x="233" y="0.0" width="54" height="28"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="223" y="0.0" width="64" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <state key="normal" title="おやすみ"/>
                                     </button>
                                 </subviews>
@@ -116,7 +116,7 @@
                                     <constraint firstAttribute="height" constant="28" id="kSI-lI-w0j"/>
                                 </constraints>
                             </stackView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyY-Oo-a61">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="oyY-Oo-a61">
                                 <rect key="frame" x="16" y="278" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="sJL-JR-ZWR"/>
@@ -168,8 +168,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="freeTextField" destination="qk7-Fp-A7x" id="Iwm-DW-26M"/>
                         <outlet property="greetingLabel" destination="PfQ-hb-Y7k" id="sOc-lF-PKD"/>
-                        <outlet property="greetingTextField" destination="qk7-Fp-A7x" id="GPZ-0n-tJf"/>
                         <outlet property="nameTextField" destination="oyY-Oo-a61" id="hp3-6C-wcm"/>
                         <outlet property="stateSegmentedControl" destination="Cx1-H2-AvE" id="6H5-kl-QbS"/>
                         <outletCollection property="greetingButtons" destination="aXe-8i-ITb" collectionClass="NSMutableArray" id="QeR-aa-0dn"/>
