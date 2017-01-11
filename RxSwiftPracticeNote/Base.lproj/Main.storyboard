@@ -204,28 +204,28 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uYO-fc-olR">
-                                <rect key="frame" x="16" y="48" width="343" height="599"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="619"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="gZz-gx-2FQ" detailTextLabel="ffl-Ve-7SJ" style="IBUITableViewCellStyleValue1" id="xJ0-6B-Ni7">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xJ0-6B-Ni7" id="zUF-hM-Ctb">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gZz-gx-2FQ">
-                                                    <rect key="frame" x="15" y="12" width="33.5" height="20.5"/>
+                                                    <rect key="frame" x="15" y="14" width="31" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <color key="textColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ffl-Ve-7SJ">
-                                                    <rect key="frame" x="284" y="12" width="44" height="20.5"/>
+                                                    <rect key="frame" x="324.5" y="16" width="35.5" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                    <color key="textColor" red="0.80000000000000004" green="0.20000000000000001" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -239,10 +239,10 @@
                             <constraint firstItem="uYO-fc-olR" firstAttribute="top" secondItem="pDJ-gp-Zcn" secondAttribute="bottom" constant="8" id="Bvh-CP-ahb"/>
                             <constraint firstItem="pDJ-gp-Zcn" firstAttribute="trailing" secondItem="vBW-VH-bxZ" secondAttribute="trailingMargin" id="DWc-Sv-MwX"/>
                             <constraint firstItem="pDJ-gp-Zcn" firstAttribute="leading" secondItem="vBW-VH-bxZ" secondAttribute="leadingMargin" id="GQV-QW-m1S"/>
-                            <constraint firstItem="uYO-fc-olR" firstAttribute="leading" secondItem="vBW-VH-bxZ" secondAttribute="leadingMargin" id="HWj-sx-hWu"/>
+                            <constraint firstItem="uYO-fc-olR" firstAttribute="leading" secondItem="vBW-VH-bxZ" secondAttribute="leadingMargin" constant="-16" id="HWj-sx-hWu"/>
                             <constraint firstItem="pDJ-gp-Zcn" firstAttribute="top" secondItem="Bpd-7N-7pl" secondAttribute="bottom" id="VBe-7s-Lsr"/>
-                            <constraint firstItem="xXo-4F-csF" firstAttribute="top" secondItem="uYO-fc-olR" secondAttribute="bottom" constant="20" id="mHa-Ft-KSS"/>
-                            <constraint firstItem="uYO-fc-olR" firstAttribute="trailing" secondItem="vBW-VH-bxZ" secondAttribute="trailingMargin" id="uhL-qy-BUr"/>
+                            <constraint firstItem="xXo-4F-csF" firstAttribute="top" secondItem="uYO-fc-olR" secondAttribute="bottom" id="mHa-Ft-KSS"/>
+                            <constraint firstItem="uYO-fc-olR" firstAttribute="trailing" secondItem="vBW-VH-bxZ" secondAttribute="trailingMargin" constant="16" id="uhL-qy-BUr"/>
                         </constraints>
                     </view>
                     <connections>

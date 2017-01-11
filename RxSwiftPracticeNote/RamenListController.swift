@@ -8,7 +8,6 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 import RxDataSources
 
 /*
@@ -29,7 +28,7 @@ class RamenListController: UIViewController {
     //監視対象のオブジェクトの一括解放用
     let disposeBag = DisposeBag()
     
-    //表示するラーメンデータの取得
+    //Presenter層から表示するラーメンデータの取得
     let ramensData = RamenPresenter()
     
     //データソースの定義
@@ -40,7 +39,8 @@ class RamenListController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        //TODO: コメントの記載をちゃんとする
         dataSource.configureCell = {_, tableView, indexPath, ramens in
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.textLabel?.text = ramens.name
@@ -49,9 +49,16 @@ class RamenListController: UIViewController {
             return cell
         }
 
+        //TODO: コメントの記載をちゃんとする
         ramensData.ramens.bindTo(ramenTableView.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
 
+        //TODO: コメントの記載をちゃんとする
         ramenTableView.rx.setDelegate(self).addDisposableTo(disposeBag)
+
+        //TODO: コメントの記載をちゃんとする
+        dataSource.titleForHeaderInSection = { (ds, section: Int) -> String in
+            return ds[section].model
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,8 +66,9 @@ class RamenListController: UIViewController {
     }
 }
 
+//TODO: コメントの記載をちゃんとする
 extension RamenListController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(80)
+        return CGFloat(65)
     }
 }
