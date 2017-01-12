@@ -10,13 +10,22 @@ import Foundation
 import RxSwift
 import RxDataSources
 
-//TODO: コメントの記載をちゃんとする
+/**
+ * 表示データ形式定義に関するPresenterクラス（Presenterとするのかはちょっと自信ない...）
+ *
+ * （参考）Webアプリケーション開発者から見た、MVCとMVP、そしてMVVMの違い
+ * http://qiita.com/shinkuFencer/items/f2651073fb71416b6cd7
+ *
+ */
 class RamenPresenter {
     
     //表示用のデータの具体的な設定をする
+    //(just)ある特定の値を元にしてObservableを作成する
     let ramens = Observable.just([
 
-        //TODO: コメントの記載をちゃんとする
+        //セクション付きのモデルを作成する → RxDataSources内にあるSectionModelメソッドで「SectionありのdataSourceを生成する」
+        //http://baroqueworksdevjp.blogspot.jp/2016/04/rxswift-sectiondatasource.html
+        //引数（model: セクション名, items: [モデル構造体で定義する値の配列]）
         SectionModel(model: "醤油", items: [
             Ramen(name: "豚骨醤油ラーメン",taste: "濃いめ", imageId: "sample005"),
             Ramen(name: "喜多方ラーメン", taste: "あっさり", imageId: "sample009"),

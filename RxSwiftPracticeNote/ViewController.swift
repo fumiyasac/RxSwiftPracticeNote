@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 
 /*
+ 【Warming Up】テキストフィールドやボタンコレクションで挨拶文を作るプラクティス
+
  このサンプルを作成する上での参考資料
  -----------
  ・GreetingGenerator with RxSwift (iOS 8, Swift 3)
@@ -30,7 +32,7 @@ import RxCocoa
  (7/7)
  https://www.youtube.com/watch?v=pBGbA-bvZF0
  
- Observerパターンについて】オブザーバーパターンから始めるRxSwift入門
+ 【Observerパターンについて】オブザーバーパターンから始めるRxSwift入門
  http://qiita.com/k5n/items/17f845a75cce6b737d1e
 */
 

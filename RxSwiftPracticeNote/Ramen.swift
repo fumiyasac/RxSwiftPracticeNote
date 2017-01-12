@@ -29,7 +29,14 @@ struct Ramen {
     }
 }
 
-//TODO: コメントの記載をちゃんとする
+/**
+ * RamenモデルにおけるIdentifiableTypeを設定する（型に別名をつける）
+ * （参考1）http://swift.tecc0.com/?p=284
+ * （参考2）http://qiita.com/shimesaba/items/4d19a7e4c67caca73603
+ *
+ * 下記のようにRxDataSourcesのプロトコルとして定義されている
+ * https://github.com/ReactiveX/RxSwift/blob/master/RxExample/RxDataSources/DataSources/IdentifiableType.swift
+ */
 extension Ramen: IdentifiableType {
     typealias Identity = String
     var identity: Identity { return imageId }
