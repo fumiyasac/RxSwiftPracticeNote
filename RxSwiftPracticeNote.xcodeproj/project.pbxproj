@@ -143,6 +143,13 @@
 			name = Presenter;
 			sourceTree = "<group>";
 		};
+		DE337C711E275B760008CDA6 /* Chapter2 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Chapter2;
+			sourceTree = "<group>";
+		};
 		DE4E476C1E24A01500152472 = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +178,7 @@
 				DE4E47781E24A01600152472 /* AppDelegate.swift */,
 				DE2FE34D1E263A73005168CC /* Warmingup */,
 				DE2FE34E1E263A8A005168CC /* Chapter1 */,
+				DE337C711E275B760008CDA6 /* Chapter2 */,
 				DE4E477C1E24A01600152472 /* Main.storyboard */,
 				DE4E477F1E24A01600152472 /* Assets.xcassets */,
 				DE4E47811E24A01600152472 /* LaunchScreen.storyboard */,

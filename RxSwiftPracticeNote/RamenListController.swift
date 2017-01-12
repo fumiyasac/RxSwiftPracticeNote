@@ -11,7 +11,7 @@ import RxSwift
 import RxDataSources
 
 /*
- 【Chapter1】ラーメンの一覧をRxDataSourcesを利用してUITableViewに一覧表示をするサンプル
+ 【Chapter1】ラーメンの一覧をRxDataSourcesを利用してUITableViewに一覧表示をするプラクティス
  
  このサンプルを作成する上での参考資料
  -----------
