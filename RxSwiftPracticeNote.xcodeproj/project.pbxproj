@@ -8,9 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B9A828F74074DAD02605900E /* Pods_RxSwiftPracticeNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E27D0EC1D8369CBBAB07413 /* Pods_RxSwiftPracticeNote.framework */; };
+		DE0577F71E277A5A00370B6F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0577F61E277A5A00370B6F /* Repository.swift */; };
+		DE0577F91E277AC400370B6F /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0577F81E277AC400370B6F /* RepositoriesViewModel.swift */; };
 		DE178F791E2649FD00693CD5 /* RamenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE178F781E2649FD00693CD5 /* RamenPresenter.swift */; };
 		DE2FE34C1E263A0E005168CC /* RamenListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FE34B1E263A0E005168CC /* RamenListController.swift */; };
 		DE2FE3541E263DFB005168CC /* Ramen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FE3531E263DFB005168CC /* Ramen.swift */; };
+		DE337C761E27698B0008CDA6 /* RepositoryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE337C751E27698B0008CDA6 /* RepositoryListController.swift */; };
 		DE4E47791E24A01600152472 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E47781E24A01600152472 /* AppDelegate.swift */; };
 		DE4E477B1E24A01600152472 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E477A1E24A01600152472 /* ViewController.swift */; };
 		DE4E477E1E24A01600152472 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4E477C1E24A01600152472 /* Main.storyboard */; };
@@ -41,9 +44,12 @@
 		06B5FDE7CE26FEA48ACA2ED2 /* Pods-RxSwiftPracticeNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPracticeNote.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPracticeNote/Pods-RxSwiftPracticeNote.release.xcconfig"; sourceTree = "<group>"; };
 		4E27D0EC1D8369CBBAB07413 /* Pods_RxSwiftPracticeNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftPracticeNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4E5ADE344FE6850AC8BF45F /* Pods-RxSwiftPracticeNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftPracticeNote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftPracticeNote/Pods-RxSwiftPracticeNote.debug.xcconfig"; sourceTree = "<group>"; };
+		DE0577F61E277A5A00370B6F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		DE0577F81E277AC400370B6F /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
 		DE178F781E2649FD00693CD5 /* RamenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RamenPresenter.swift; sourceTree = "<group>"; };
 		DE2FE34B1E263A0E005168CC /* RamenListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RamenListController.swift; sourceTree = "<group>"; };
 		DE2FE3531E263DFB005168CC /* Ramen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ramen.swift; sourceTree = "<group>"; };
+		DE337C751E27698B0008CDA6 /* RepositoryListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListController.swift; sourceTree = "<group>"; };
 		DE4E47751E24A01600152472 /* RxSwiftPracticeNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwiftPracticeNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4E47781E24A01600152472 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE4E477A1E24A01600152472 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,8 +152,35 @@
 		DE337C711E275B760008CDA6 /* Chapter2 */ = {
 			isa = PBXGroup;
 			children = (
+				DE337C741E2768340008CDA6 /* ViewModel */,
+				DE337C731E27682E0008CDA6 /* Model */,
+				DE337C721E2768240008CDA6 /* ViewController */,
 			);
 			name = Chapter2;
+			sourceTree = "<group>";
+		};
+		DE337C721E2768240008CDA6 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE337C751E27698B0008CDA6 /* RepositoryListController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		DE337C731E27682E0008CDA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE0577F61E277A5A00370B6F /* Repository.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		DE337C741E2768340008CDA6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE0577F81E277AC400370B6F /* RepositoriesViewModel.swift */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		DE4E476C1E24A01500152472 = {
@@ -401,10 +434,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE178F791E2649FD00693CD5 /* RamenPresenter.swift in Sources */,
+				DE0577F71E277A5A00370B6F /* Repository.swift in Sources */,
 				DE2FE34C1E263A0E005168CC /* RamenListController.swift in Sources */,
 				DE2FE3541E263DFB005168CC /* Ramen.swift in Sources */,
 				DE4E477B1E24A01600152472 /* ViewController.swift in Sources */,
+				DE0577F91E277AC400370B6F /* RepositoriesViewModel.swift in Sources */,
 				DE4E47791E24A01600152472 /* AppDelegate.swift in Sources */,
+				DE337C761E27698B0008CDA6 /* RepositoryListController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +594,7 @@
 				DEVELOPMENT_TEAM = S5BF5553KY;
 				INFOPLIST_FILE = RxSwiftPracticeNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "-DEZDUMMY12";
 				PRODUCT_BUNDLE_IDENTIFIER = net.just1factory.RxSwiftPracticeNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -572,6 +609,7 @@
 				DEVELOPMENT_TEAM = S5BF5553KY;
 				INFOPLIST_FILE = RxSwiftPracticeNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_CFLAGS = "-DEZDUMMY12";
 				PRODUCT_BUNDLE_IDENTIFIER = net.just1factory.RxSwiftPracticeNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

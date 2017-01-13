@@ -5,4 +5,7 @@ target 'RxSwiftPracticeNote' do
   pod 'RxCocoa'
   # TableViewやCollectionViewのDataSourceをRxSwiftで扱うのに必要なライブラリ
   pod 'RxDataSources'
+
+  pod 'RxAlamofire/RxCocoa'
+  pod 'ObjectMapper'
 end
