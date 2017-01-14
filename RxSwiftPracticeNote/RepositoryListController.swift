@@ -127,6 +127,33 @@ class RepositoryListController: UIViewController {
     //キーボードのイベント監視の設定 ＆ テーブルビューに付与したGestureRecognizerに関する処理
     //この部分はRxSwiftの処理ではないので切り離して書かれている形？
     func setupUI() {
+        
+        /**
+         * 2017/01/14: 補足事項
+         *
+         * Notification周りやGesture周りもRxでの記載が可能
+         *
+         * (記載例)
+         * ----------
+         * Notification: 
+         * ----------
+         * NotificationCenter.default.rx.notification(.UIKeyboardWillChangeFram) ...
+         * NotificationCenter.default.rx.notification(.UIKeyboardWillHide) ...
+         *
+         * ----------
+         * Gesutre:
+         * ----------
+         * let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped(_:)))
+         * let didTap = stap.rx.event ...
+         * 
+         * → NotificationやGestureに関しても、このような記述をすることでObservableとして利用可能！
+         *
+         * (さらに参考になった資料)【RxSwift入門】普段使ってるこんなんもRxSwiftで書けるんよ
+         * http://qiita.com/ikemai/items/8d3efcc71ea9db340484
+         *
+         * RxKeyboard:
+         * https://github.com/RxSwiftCommunity/RxKeyboard/blob/master/Sources/RxKeyboard.swift
+         */
 
         //テーブルビューにGestureRecognizerを付与する
         let tap = UITapGestureRecognizer(target: self, action: #selector(tableTapped(_:)))
