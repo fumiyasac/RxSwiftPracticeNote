@@ -11,6 +11,13 @@
 		DE0577F71E277A5A00370B6F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0577F61E277A5A00370B6F /* Repository.swift */; };
 		DE0577F91E277AC400370B6F /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0577F81E277AC400370B6F /* RepositoriesViewModel.swift */; };
 		DE178F791E2649FD00693CD5 /* RamenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE178F781E2649FD00693CD5 /* RamenPresenter.swift */; };
+		DE2FA97C1E2B791D009E3556 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA97B1E2B791C009E3556 /* Constants.swift */; };
+		DE2FA97F1E2B7D65009E3556 /* VenueSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA97E1E2B7D65009E3556 /* VenueSearchViewController.swift */; };
+		DE2FA9851E2B8239009E3556 /* VenueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA9831E2B8239009E3556 /* VenueCell.swift */; };
+		DE2FA9861E2B8239009E3556 /* VenueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE2FA9841E2B8239009E3556 /* VenueCell.xib */; };
+		DE2FA9891E2B87E0009E3556 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA9881E2B87E0009E3556 /* Venue.swift */; };
+		DE2FA98B1E2B87F0009E3556 /* VenueAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA98A1E2B87F0009E3556 /* VenueAPIClient.swift */; };
+		DE2FA98D1E2B8815009E3556 /* VenueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FA98C1E2B8815009E3556 /* VenueViewModel.swift */; };
 		DE2FE34C1E263A0E005168CC /* RamenListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FE34B1E263A0E005168CC /* RamenListController.swift */; };
 		DE2FE3541E263DFB005168CC /* Ramen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2FE3531E263DFB005168CC /* Ramen.swift */; };
 		DE337C761E27698B0008CDA6 /* RepositoryListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE337C751E27698B0008CDA6 /* RepositoryListController.swift */; };
@@ -21,6 +28,8 @@
 		DE4E47831E24A01600152472 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE4E47811E24A01600152472 /* LaunchScreen.storyboard */; };
 		DE4E478E1E24A01600152472 /* RxSwiftPracticeNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E478D1E24A01600152472 /* RxSwiftPracticeNoteTests.swift */; };
 		DE4E47991E24A01600152472 /* RxSwiftPracticeNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E47981E24A01600152472 /* RxSwiftPracticeNoteUITests.swift */; };
+		DECF34F81E2BA25D006535D4 /* VenueDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF34F71E2BA25D006535D4 /* VenueDelegate.swift */; };
+		DECF34FA1E2BA275006535D4 /* VenueDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF34F91E2BA275006535D4 /* VenueDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +56,13 @@
 		DE0577F61E277A5A00370B6F /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		DE0577F81E277AC400370B6F /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
 		DE178F781E2649FD00693CD5 /* RamenPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RamenPresenter.swift; sourceTree = "<group>"; };
+		DE2FA97B1E2B791C009E3556 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DE2FA97E1E2B7D65009E3556 /* VenueSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueSearchViewController.swift; sourceTree = "<group>"; };
+		DE2FA9831E2B8239009E3556 /* VenueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueCell.swift; sourceTree = "<group>"; };
+		DE2FA9841E2B8239009E3556 /* VenueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueCell.xib; sourceTree = "<group>"; };
+		DE2FA9881E2B87E0009E3556 /* Venue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
+		DE2FA98A1E2B87F0009E3556 /* VenueAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueAPIClient.swift; sourceTree = "<group>"; };
+		DE2FA98C1E2B8815009E3556 /* VenueViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueViewModel.swift; sourceTree = "<group>"; };
 		DE2FE34B1E263A0E005168CC /* RamenListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RamenListController.swift; sourceTree = "<group>"; };
 		DE2FE3531E263DFB005168CC /* Ramen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ramen.swift; sourceTree = "<group>"; };
 		DE337C751E27698B0008CDA6 /* RepositoryListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryListController.swift; sourceTree = "<group>"; };
@@ -63,6 +79,8 @@
 		DE4E47941E24A01600152472 /* RxSwiftPracticeNoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RxSwiftPracticeNoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4E47981E24A01600152472 /* RxSwiftPracticeNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxSwiftPracticeNoteUITests.swift; sourceTree = "<group>"; };
 		DE4E479A1E24A01600152472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DECF34F71E2BA25D006535D4 /* VenueDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDelegate.swift; sourceTree = "<group>"; };
+		DECF34F91E2BA275006535D4 /* VenueDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +115,53 @@
 				4E27D0EC1D8369CBBAB07413 /* Pods_RxSwiftPracticeNote.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE2FA97D1E2B7D2F009E3556 /* Chapter3 */ = {
+			isa = PBXGroup;
+			children = (
+				DE2FA9871E2B8708009E3556 /* Model */,
+				DE2FA9811E2B8106009E3556 /* ViewModel */,
+				DE2FA9801E2B80F8009E3556 /* ViewController */,
+			);
+			name = Chapter3;
+			sourceTree = "<group>";
+		};
+		DE2FA9801E2B80F8009E3556 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE2FA9821E2B8214009E3556 /* Components */,
+				DE2FA97E1E2B7D65009E3556 /* VenueSearchViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		DE2FA9811E2B8106009E3556 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE2FA98C1E2B8815009E3556 /* VenueViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		DE2FA9821E2B8214009E3556 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				DE2FA9831E2B8239009E3556 /* VenueCell.swift */,
+				DE2FA9841E2B8239009E3556 /* VenueCell.xib */,
+				DECF34F71E2BA25D006535D4 /* VenueDelegate.swift */,
+				DECF34F91E2BA275006535D4 /* VenueDataSource.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		DE2FA9871E2B8708009E3556 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE2FA9881E2B87E0009E3556 /* Venue.swift */,
+				DE2FA98A1E2B87F0009E3556 /* VenueAPIClient.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		DE2FE34D1E263A73005168CC /* Warmingup */ = {
@@ -209,9 +274,11 @@
 			isa = PBXGroup;
 			children = (
 				DE4E47781E24A01600152472 /* AppDelegate.swift */,
+				DE2FA97B1E2B791C009E3556 /* Constants.swift */,
 				DE2FE34D1E263A73005168CC /* Warmingup */,
 				DE2FE34E1E263A8A005168CC /* Chapter1 */,
 				DE337C711E275B760008CDA6 /* Chapter2 */,
+				DE2FA97D1E2B7D2F009E3556 /* Chapter3 */,
 				DE4E477C1E24A01600152472 /* Main.storyboard */,
 				DE4E477F1E24A01600152472 /* Assets.xcassets */,
 				DE4E47811E24A01600152472 /* LaunchScreen.storyboard */,
@@ -359,6 +426,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE4E47831E24A01600152472 /* LaunchScreen.storyboard in Resources */,
+				DE2FA9861E2B8239009E3556 /* VenueCell.xib in Resources */,
 				DE4E47801E24A01600152472 /* Assets.xcassets in Resources */,
 				DE4E477E1E24A01600152472 /* Main.storyboard in Resources */,
 			);
@@ -434,13 +502,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE178F791E2649FD00693CD5 /* RamenPresenter.swift in Sources */,
+				DE2FA9891E2B87E0009E3556 /* Venue.swift in Sources */,
 				DE0577F71E277A5A00370B6F /* Repository.swift in Sources */,
 				DE2FE34C1E263A0E005168CC /* RamenListController.swift in Sources */,
+				DECF34F81E2BA25D006535D4 /* VenueDelegate.swift in Sources */,
+				DE2FA98D1E2B8815009E3556 /* VenueViewModel.swift in Sources */,
 				DE2FE3541E263DFB005168CC /* Ramen.swift in Sources */,
 				DE4E477B1E24A01600152472 /* ViewController.swift in Sources */,
 				DE0577F91E277AC400370B6F /* RepositoriesViewModel.swift in Sources */,
 				DE4E47791E24A01600152472 /* AppDelegate.swift in Sources */,
+				DE2FA9851E2B8239009E3556 /* VenueCell.swift in Sources */,
 				DE337C761E27698B0008CDA6 /* RepositoryListController.swift in Sources */,
+				DE2FA97F1E2B7D65009E3556 /* VenueSearchViewController.swift in Sources */,
+				DE2FA98B1E2B87F0009E3556 /* VenueAPIClient.swift in Sources */,
+				DECF34FA1E2BA275006535D4 /* VenueDataSource.swift in Sources */,
+				DE2FA97C1E2B791D009E3556 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

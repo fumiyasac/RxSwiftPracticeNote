@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FoursquareAPIClient.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,20 +44,30 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>18B919FB1EE38142B1FF38FF48A1F2C8</key>
+		<key>05FF121AAF8C985824C55449FA4223F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2D9CB3800E79E5B2A6D5B5AE36DD8D3D</key>
+		<key>35B45BD76B3361D906043C5F9E8CB9CA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>58437F1E12274414CA229213547202A8</key>
+		<key>4710D1A59B3FF3CF67BA72ABA2EF565F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5F43E659B081249CD34AD0F75B8FD82F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2A09FF49DA4682EB497733B9A7EBC0E</key>
+		<key>97C813F2C367F9A4EE9F958B5C520C2B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AF55C47D3AD8EFF4BCAFC08166B6B759</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -72,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FEBE98B5405737FD83394646E2081588</key>
+		<key>E665DF52261050F72382F49A36EC2BB1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

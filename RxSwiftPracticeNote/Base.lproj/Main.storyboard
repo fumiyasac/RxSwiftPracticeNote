@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ooJ-qc-jYt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="baK-oY-yRh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -340,6 +340,67 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLD-5I-c9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="869.60000000000002" y="839.73013493253382"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Ns-Yg-9pb">
+            <objects>
+                <navigationController id="baK-oY-yRh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8ti-Ke-hUe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="HeY-Cu-pnR" kind="relationship" relationship="rootViewController" id="4l1-1r-2iw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R4R-qB-Kh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="1563"/>
+        </scene>
+        <!--Venue Search View Controller-->
+        <scene sceneID="LhD-Pv-YU8">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="HeY-Cu-pnR" customClass="VenueSearchViewController" customModule="RxSwiftPracticeNote" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Hi-Qr-NAR"/>
+                        <viewControllerLayoutGuide type="bottom" id="FhJ-mM-stk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XNr-Vs-Rfh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0NY-pI-a5E">
+                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="bLZ-su-dxx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Gjc-Kw-q2p"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0NY-pI-a5E" secondAttribute="trailing" id="2p8-Kz-QnO"/>
+                            <constraint firstItem="0NY-pI-a5E" firstAttribute="leading" secondItem="XNr-Vs-Rfh" secondAttribute="leading" id="7lW-00-j7J"/>
+                            <constraint firstItem="0NY-pI-a5E" firstAttribute="top" secondItem="bLZ-su-dxx" secondAttribute="bottom" id="S5Z-dM-V2K"/>
+                            <constraint firstItem="bLZ-su-dxx" firstAttribute="top" secondItem="3Hi-Qr-NAR" secondAttribute="bottom" id="TXL-7q-I5G"/>
+                            <constraint firstAttribute="trailing" secondItem="bLZ-su-dxx" secondAttribute="trailing" id="gho-Fy-VQZ"/>
+                            <constraint firstItem="FhJ-mM-stk" firstAttribute="top" secondItem="0NY-pI-a5E" secondAttribute="bottom" id="wGa-B6-BaU"/>
+                            <constraint firstItem="bLZ-su-dxx" firstAttribute="leading" secondItem="XNr-Vs-Rfh" secondAttribute="leading" id="zzG-sk-zyj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9aP-Iu-HTX"/>
+                    <connections>
+                        <outlet property="venueSearchBar" destination="bLZ-su-dxx" id="rtm-Op-HGh"/>
+                        <outlet property="venueSearchTableView" destination="0NY-pI-a5E" id="6HO-Ga-Jks"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pyA-oT-KHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="869.60000000000002" y="1562.9685157421291"/>
         </scene>
     </scenes>
 </document>
