@@ -394,13 +394,106 @@
                     </view>
                     <navigationItem key="navigationItem" id="9aP-Iu-HTX"/>
                     <connections>
+                        <outlet property="bottomVenueTableConstraint" destination="wGa-B6-BaU" id="ytX-XO-twd"/>
                         <outlet property="venueSearchBar" destination="bLZ-su-dxx" id="rtm-Op-HGh"/>
                         <outlet property="venueSearchTableView" destination="0NY-pI-a5E" id="6HO-Ga-Jks"/>
+                        <segue destination="vPp-S8-HCr" kind="show" id="1vi-Ql-DMX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyA-oT-KHG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="869.60000000000002" y="1562.9685157421291"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="FmO-wA-dET">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="vPp-S8-HCr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dEy-fV-Da5"/>
+                        <viewControllerLayoutGuide type="bottom" id="5jX-Pe-YKl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B9c-S7-cxL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5A7-eG-LZq">
+                                <rect key="frame" x="0.0" y="64" width="375" height="112"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目的地周辺1kmのレストラン情報：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZF-ft-HHb">
+                                        <rect key="frame" x="8" y="8" width="359" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="ifz-c5-NAD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNm-6O-58Z">
+                                        <rect key="frame" x="8" y="34" width="359" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="b0e-r5-BN7"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FA6-KD-Yge">
+                                        <rect key="frame" x="8" y="60" width="359" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="8Jy-gs-zvz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="※情報はリクルートWebサービス(hotpepperAPI)を使用。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GLq-yB-H3C">
+                                        <rect key="frame" x="8" y="86" width="359" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="Sdd-oF-njU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="cZF-ft-HHb" firstAttribute="top" secondItem="5A7-eG-LZq" secondAttribute="top" constant="8" id="6Su-57-VyZ"/>
+                                    <constraint firstItem="GLq-yB-H3C" firstAttribute="top" secondItem="FA6-KD-Yge" secondAttribute="bottom" constant="8" id="7K9-xG-wkp"/>
+                                    <constraint firstItem="GLq-yB-H3C" firstAttribute="leading" secondItem="5A7-eG-LZq" secondAttribute="leading" constant="8" id="8fh-rJ-Is0"/>
+                                    <constraint firstAttribute="height" constant="112" id="AhT-Lc-bfa"/>
+                                    <constraint firstItem="cZF-ft-HHb" firstAttribute="leading" secondItem="5A7-eG-LZq" secondAttribute="leading" constant="8" id="Dw8-Ug-G0o"/>
+                                    <constraint firstItem="DNm-6O-58Z" firstAttribute="leading" secondItem="5A7-eG-LZq" secondAttribute="leading" constant="8" id="Ixf-Hx-New"/>
+                                    <constraint firstAttribute="trailing" secondItem="FA6-KD-Yge" secondAttribute="trailing" constant="8" id="QBb-Rb-3hh"/>
+                                    <constraint firstAttribute="trailing" secondItem="cZF-ft-HHb" secondAttribute="trailing" constant="8" id="UKC-f7-jbj"/>
+                                    <constraint firstItem="FA6-KD-Yge" firstAttribute="leading" secondItem="5A7-eG-LZq" secondAttribute="leading" constant="8" id="UM3-GD-Wzk"/>
+                                    <constraint firstAttribute="trailing" secondItem="DNm-6O-58Z" secondAttribute="trailing" constant="8" id="YUa-k8-3BC"/>
+                                    <constraint firstAttribute="trailing" secondItem="GLq-yB-H3C" secondAttribute="trailing" constant="8" id="jPy-Hx-nWO"/>
+                                    <constraint firstAttribute="bottom" secondItem="GLq-yB-H3C" secondAttribute="bottom" constant="8" id="lKr-tb-QDC"/>
+                                    <constraint firstItem="FA6-KD-Yge" firstAttribute="top" secondItem="DNm-6O-58Z" secondAttribute="bottom" constant="8" id="w5V-Hf-DRL"/>
+                                    <constraint firstItem="DNm-6O-58Z" firstAttribute="top" secondItem="cZF-ft-HHb" secondAttribute="bottom" constant="8" id="ycn-ZO-cye"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aqS-3G-qsW">
+                                <rect key="frame" x="0.0" y="176" width="375" height="491"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5A7-eG-LZq" firstAttribute="leading" secondItem="B9c-S7-cxL" secondAttribute="leading" id="AOg-U0-9Dd"/>
+                            <constraint firstItem="5A7-eG-LZq" firstAttribute="top" secondItem="dEy-fV-Da5" secondAttribute="bottom" id="LYC-ry-Uyp"/>
+                            <constraint firstItem="aqS-3G-qsW" firstAttribute="leading" secondItem="B9c-S7-cxL" secondAttribute="leading" id="Mg1-OK-5aB"/>
+                            <constraint firstItem="5jX-Pe-YKl" firstAttribute="top" secondItem="aqS-3G-qsW" secondAttribute="bottom" id="Tmk-IM-P8G"/>
+                            <constraint firstAttribute="trailing" secondItem="5A7-eG-LZq" secondAttribute="trailing" id="XDI-oX-KaD"/>
+                            <constraint firstItem="aqS-3G-qsW" firstAttribute="top" secondItem="dEy-fV-Da5" secondAttribute="bottom" constant="112" id="q2K-rl-CC7"/>
+                            <constraint firstAttribute="trailing" secondItem="aqS-3G-qsW" secondAttribute="trailing" id="tww-mn-8st"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qmV-DO-JN2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1640.8" y="1562.9685157421291"/>
         </scene>
     </scenes>
 </document>

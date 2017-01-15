@@ -36,10 +36,10 @@ class VenuesAPIClient {
             client.request(path: "venues/search", parameter: parameter) {
                 [weak self] data, error in
                 
-                //
+                //データの取得と参照に関するチェックをする
                 guard let strongSelf = self, let data = data else { return }
                 
-                //
+                //APIのJSONを解析する
                 let json = JSON(data: data)
                 let venues = strongSelf.parse(venuesJSON: json["response"]["venues"])
                 

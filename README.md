@@ -9,7 +9,7 @@ UIまわりの実装や機能作成に関わる部分を中心に今後も日本
 + 【Warming Up】テキストフィールドやボタンコレクションで挨拶文を作るプラクティス
 + 【Chapter1】ラーメンの一覧をRxDataSourcesを利用してUITableViewに一覧表示をするプラクティス
 + 【Chapter2】GithubのAPIを利用してuser名を検索してリポジトリ一覧をUITableViewに一覧表示をするプラクティス
-+ 【Chapter3】FoursquareのAPIを活用したサンプルを利用したプラクティス
++ 【Chapter3】FoursquareAPI & HotpepperAPIを利用して検索した場所周辺1kmにあるレストランを検索するプラクティス
 + 【Appendix】クレジットカードの番号を入力するサンプルフォームのプラクティス
 
 ※ コメントの日本語に関しておかしな表現等がございましたらissueやpull requestを頂けますと幸いです。

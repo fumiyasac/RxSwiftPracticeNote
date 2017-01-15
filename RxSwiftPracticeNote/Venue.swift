@@ -22,7 +22,8 @@ struct Venue: CustomStringConvertible {
     let latitude: Double?
     let longitude: Double?
     let categoryIconURL: URL?
-    
+
+    //取得データの詳細に関する変数
     var description: String {
         return "<venueId=\(venueId)"
             + ", name=\(name)"

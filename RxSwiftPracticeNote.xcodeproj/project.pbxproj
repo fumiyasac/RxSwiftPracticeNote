@@ -30,6 +30,7 @@
 		DE4E47991E24A01600152472 /* RxSwiftPracticeNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE4E47981E24A01600152472 /* RxSwiftPracticeNoteUITests.swift */; };
 		DECF34F81E2BA25D006535D4 /* VenueDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF34F71E2BA25D006535D4 /* VenueDelegate.swift */; };
 		DECF34FA1E2BA275006535D4 /* VenueDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF34F91E2BA275006535D4 /* VenueDataSource.swift */; };
+		DECF35011E2BCF91006535D4 /* RestaurantSearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DECF35001E2BCF91006535D4 /* RestaurantSearchResultController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		DE4E479A1E24A01600152472 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DECF34F71E2BA25D006535D4 /* VenueDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDelegate.swift; sourceTree = "<group>"; };
 		DECF34F91E2BA275006535D4 /* VenueDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueDataSource.swift; sourceTree = "<group>"; };
+		DECF35001E2BCF91006535D4 /* RestaurantSearchResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantSearchResultController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				DE2FA9821E2B8214009E3556 /* Components */,
 				DE2FA97E1E2B7D65009E3556 /* VenueSearchViewController.swift */,
+				DECF35001E2BCF91006535D4 /* RestaurantSearchResultController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -139,7 +142,8 @@
 		DE2FA9811E2B8106009E3556 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DE2FA98C1E2B8815009E3556 /* VenueViewModel.swift */,
+				DECF34FE1E2BCE7E006535D4 /* Restaurant */,
+				DECF34FD1E2BCE74006535D4 /* Venue */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -147,10 +151,8 @@
 		DE2FA9821E2B8214009E3556 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DE2FA9831E2B8239009E3556 /* VenueCell.swift */,
-				DE2FA9841E2B8239009E3556 /* VenueCell.xib */,
-				DECF34F71E2BA25D006535D4 /* VenueDelegate.swift */,
-				DECF34F91E2BA275006535D4 /* VenueDataSource.swift */,
+				DECF34FC1E2BCE68006535D4 /* Restaurant */,
+				DECF34FB1E2BCE5D006535D4 /* Venue */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -158,8 +160,7 @@
 		DE2FA9871E2B8708009E3556 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DE2FA9881E2B87E0009E3556 /* Venue.swift */,
-				DE2FA98A1E2B87F0009E3556 /* VenueAPIClient.swift */,
+				DECF34FF1E2BCE93006535D4 /* Venue */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -303,6 +304,48 @@
 				DE4E479A1E24A01600152472 /* Info.plist */,
 			);
 			path = RxSwiftPracticeNoteUITests;
+			sourceTree = "<group>";
+		};
+		DECF34FB1E2BCE5D006535D4 /* Venue */ = {
+			isa = PBXGroup;
+			children = (
+				DECF34F71E2BA25D006535D4 /* VenueDelegate.swift */,
+				DECF34F91E2BA275006535D4 /* VenueDataSource.swift */,
+				DE2FA9831E2B8239009E3556 /* VenueCell.swift */,
+				DE2FA9841E2B8239009E3556 /* VenueCell.xib */,
+			);
+			name = Venue;
+			sourceTree = "<group>";
+		};
+		DECF34FC1E2BCE68006535D4 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Restaurant;
+			sourceTree = "<group>";
+		};
+		DECF34FD1E2BCE74006535D4 /* Venue */ = {
+			isa = PBXGroup;
+			children = (
+				DE2FA98C1E2B8815009E3556 /* VenueViewModel.swift */,
+			);
+			name = Venue;
+			sourceTree = "<group>";
+		};
+		DECF34FE1E2BCE7E006535D4 /* Restaurant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Restaurant;
+			sourceTree = "<group>";
+		};
+		DECF34FF1E2BCE93006535D4 /* Venue */ = {
+			isa = PBXGroup;
+			children = (
+				DE2FA9881E2B87E0009E3556 /* Venue.swift */,
+				DE2FA98A1E2B87F0009E3556 /* VenueAPIClient.swift */,
+			);
+			name = Venue;
 			sourceTree = "<group>";
 		};
 		E93EEC4056B782230A2C3FFC /* Pods */ = {
@@ -504,6 +547,7 @@
 				DE178F791E2649FD00693CD5 /* RamenPresenter.swift in Sources */,
 				DE2FA9891E2B87E0009E3556 /* Venue.swift in Sources */,
 				DE0577F71E277A5A00370B6F /* Repository.swift in Sources */,
+				DECF35011E2BCF91006535D4 /* RestaurantSearchResultController.swift in Sources */,
 				DE2FE34C1E263A0E005168CC /* RamenListController.swift in Sources */,
 				DECF34F81E2BA25D006535D4 /* VenueDelegate.swift in Sources */,
 				DE2FA98D1E2B8815009E3556 /* VenueViewModel.swift in Sources */,
