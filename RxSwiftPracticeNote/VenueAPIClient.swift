@@ -30,7 +30,7 @@ class VenuesAPIClient {
             let parameter: [String : String] = [
                 "ll": "35.7260747,139.72983",
                 "query": query
-            ];
+            ]
 
             //クライアントへのアクセス
             client.request(path: "venues/search", parameter: parameter) {

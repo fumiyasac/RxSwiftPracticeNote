@@ -13,7 +13,13 @@ import SwiftyJSON
 //(参考)https://developer.foursquare.com/docs/responses/category
 let kCategoryIconSize = 88
 
-//ForesquareAPIから取得した情報に関する定義（Model層に該当）
+//
+/**
+ * ForesquareAPIから取得した情報に関する定義（Model層に該当）
+ * 
+ * (参考)【iOS Swift入門 #255】独自クラスでログ出力(description)を実装する
+ * http://swift.swift-studying.com/entry/2015/09/14/090849
+ */
 struct Venue: CustomStringConvertible {
     
     let venueId: String
@@ -21,6 +27,8 @@ struct Venue: CustomStringConvertible {
     let address: String?
     let latitude: Double?
     let longitude: Double?
+    let state: String?
+    let city: String?
     let categoryIconURL: URL?
 
     //取得データの詳細に関する変数
@@ -29,6 +37,8 @@ struct Venue: CustomStringConvertible {
             + ", name=\(name)"
             + ", address=\(address)"
             + ", latitude=\(latitude), longitude=\(longitude)"
+            + ", state=\(state)"
+            + ", city=\(city)"
             + ", categoryIconURL=\(categoryIconURL)>"
     }
     
@@ -41,12 +51,14 @@ struct Venue: CustomStringConvertible {
         self.address = json["location"]["address"].string
         self.latitude = json["location"]["lat"].double
         self.longitude = json["location"]["lng"].double
+        self.state = json["location"]["state"].string ?? ""
+        self.city = json["location"]["city"].string ?? ""
         
         //ForesquareAPIからのレスポンスでカテゴリーを元にしてアイコンのURLを作成する(SWiftyJSONを使用)
         if let categories = json["categories"].array, categories.count > 0 {
-            let prefix = json["categories"][0]["icon"]["prefix"].string ?? ""
-            let suffix = json["categories"][0]["icon"]["suffix"].string ?? ""
-            let iconUrlString = String(format: "%@%d%@", prefix, kCategoryIconSize, suffix)
+            let iconPrefix = json["categories"][0]["icon"]["prefix"].string ?? ""
+            let iconSuffix = json["categories"][0]["icon"]["suffix"].string ?? ""
+            let iconUrlString = String(format: "%@%d%@", iconPrefix, kCategoryIconSize, iconSuffix)
             self.categoryIconURL = URL(string: iconUrlString)
         }
         else {

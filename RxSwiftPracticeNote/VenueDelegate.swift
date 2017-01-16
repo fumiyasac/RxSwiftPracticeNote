@@ -12,6 +12,6 @@ class VenueDelegate: NSObject, UITableViewDelegate {
 
     //UITableViewDelegateでテーブルビューの高さを返すメソッド
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return 135
     }
 }

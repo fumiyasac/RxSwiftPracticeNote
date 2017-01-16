@@ -9,9 +9,10 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SafariServices
 
 /*
- 【Chapter3】FoursquareAPI & HotpepperAPIを利用して検索した場所周辺1kmにあるレストランを検索するプラクティス
+ 【Chapter3】FoursquareAPIを利用して検索した場所を表示するプラクティス
  
  このサンプルを作成する上での参考資料
  -----------
@@ -36,9 +37,6 @@ import RxCocoa
  
  【FoursquareのAPIについて】
  https://developer.foursquare.com/
-
- 【リクルートWebサービス(ホットペッパー)APIについて】
- http://webservice.recruit.co.jp/hotpepper/reference.html
  */
 class VenueSearchViewController: UIViewController {
 
@@ -102,17 +100,26 @@ class VenueSearchViewController: UIViewController {
                 //この値を元に具体的な処理を記載する
                 if let venue = self?.venueViewModel.venues.value[indexPath.row] {
                     
-                    //TODO: 値を遷移先に引き渡してその近辺のレストラン情報を取得する
+                    //PLAN: 場所の表示だけではなく何かしらアレンジできればGood!
                     
                     //キーボードが表示されていたらキーボードを閉じる
                     if (self?.venueSearchBar.isFirstResponder)! {
                         self?.venueSearchBar.resignFirstResponder()
                     }
-                        
-                    //Debug.
+                    
+                    //Foursquareのページを表示する
+                    let urlString = "https://foursquare.com/v/" + venue.venueId
+                    if let url = URL(string: urlString) {
+                        let safariViewController = SFSafariViewController(url: url)
+                        self?.present(safariViewController, animated: true, completion: nil)
+                    }
+                    
+                    //DEBUG: 取得データに関するチェック
                     print("-----------")
                     print(venue.venueId)
                     print(venue.name)
+                    print(venue.city)
+                    print(venue.state)
                     print(venue.address ?? "")
                     print(venue.latitude ?? "")
                     print(venue.longitude ?? "")

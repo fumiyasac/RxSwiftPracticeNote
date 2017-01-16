@@ -11,4 +11,5 @@ target 'RxSwiftPracticeNote' do
   # 便利ライブラリ(Chapter3で使用)
   pod 'SwiftyJSON'
   pod 'FoursquareAPIClient'
+  pod 'SDWebImage'
 end

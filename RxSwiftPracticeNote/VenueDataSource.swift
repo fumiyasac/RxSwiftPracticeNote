@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SDWebImage
 
 class VenueDataSource: NSObject, RxTableViewDataSourceType, UITableViewDataSource {
 
@@ -48,10 +49,24 @@ class VenueDataSource: NSObject, RxTableViewDataSourceType, UITableViewDataSourc
 
     //UITableViewDataSourceでセルの編集有無を設定するメソッド
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VenueCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VenueCell", for: indexPath) as! VenueCell
 
-        //TODO: 自前で用意したセルに値を入れる
+        //自前で用意したセルに値を入れる
+        cell.venueName.text = venues[indexPath.row].name
+        cell.venueAddress.text = venues[indexPath.row].address
+        cell.venueCity.text = venues[indexPath.row].city
+        cell.venueState.text = venues[indexPath.row].state
+
+        if let categoryIconURL = venues[indexPath.row].categoryIconURL {
+            cell.venueIconImage.sd_setImage(with: categoryIconURL)
+        }
+
+        cell.venueDescription.text = venues[indexPath.row].description
         
+        //セルのアクセサリタイプの設定
+        cell.accessoryType = UITableViewCellAccessoryType.none
+        cell.selectionStyle = UITableViewCellSelectionStyle.none
+
         return cell
     }
     
