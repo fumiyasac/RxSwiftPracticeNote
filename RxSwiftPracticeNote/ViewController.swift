@@ -38,7 +38,7 @@ import RxCocoa
 
 class ViewController: UIViewController {
 
-    //監視対象のオブジェクトの一括解放用
+    //観測対象のオブジェクトの一括解放用
     let disposeBag = DisposeBag()
 
     //SegmentedControlに対応する値の定義
@@ -64,10 +64,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //「お名前:」の入力フィールドにおいて、テキスト入力のイベントを監視対象にする
+        //「お名前:」の入力フィールドにおいて、テキスト入力のイベントを観測対象にする
         let nameObservable: Observable<String?> = nameTextField.rx.text.asObservable()
         
-        //「自由入力:」の入力フィールドにおいて、テキスト入力のイベントを監視対象にする
+        //「自由入力:」の入力フィールドにおいて、テキスト入力のイベントを観測対象にする
         let freeObservable: Observable<String?> = freeTextField.rx.text.asObservable()
         
         //(combineLatest)「お名前:」と「自由入力:」それぞれの直近の最新値同士を結合する
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
         //(DisposeBag)購読[監視?]状態からの解放を行う
         freewordWithNameObservable.bindTo(greetingLabel.rx.text).addDisposableTo(disposeBag)
 
-        //セグメントコントロールにおいて、値変化のイベントを監視対象にする
+        //セグメントコントロールにおいて、値変化のイベントを観測対象にする
         let segmentedControlObservable: Observable<Int> = stateSegmentedControl.rx.value.asObservable()
         
         //セグメントコントロールの値変化を検知して、その状態に対応するenumの値を返す
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
         }
 
         //(bindTo)イベントのプロパティ接続をする ※bindToの引数内に表示対象のUIパーツを設定
-        //(DisposeBag)購読[監視?]状態からの解放を行う
+        //(DisposeBag)観測状態からの解放を行う
         greetingTextFieldEnabledObservable.bindTo(freeTextField.rx.isEnabled).addDisposableTo(disposeBag)
         
         //テキストフィールドが編集を受け付ける状態かを検知して、ボタン部分が選択可能かを返す
@@ -110,11 +110,11 @@ class ViewController: UIViewController {
             return !greetingEnabled
         }
 
-        //アウトレットコレクションで接続したボタン軍に関する処理
+        //アウトレットコレクションで接続したボタンに関する処理
         greetingButtons.forEach { button in
             
             //(bindTo)イベントのプロパティ接続をする ※bindToの引数内に表示対象のUIパーツを設定
-            //(DisposeBag)購読[監視?]状態からの解放を行う
+            //(DisposeBag)観測状態からの解放を行う
             buttonsEnabledObservable.bindTo(button.rx.isEnabled).addDisposableTo(disposeBag)
             
             //メンバ変数：lastSelectedGreetingにボタンのタイトル名を引き渡す
