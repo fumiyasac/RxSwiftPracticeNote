@@ -141,7 +141,7 @@
 		DE2FA9811E2B8106009E3556 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DECF34FD1E2BCE74006535D4 /* Venue */,
+				DE2FA98C1E2B8815009E3556 /* VenueViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -149,7 +149,10 @@
 		DE2FA9821E2B8214009E3556 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				DECF34FB1E2BCE5D006535D4 /* Venue */,
+				DECF34F71E2BA25D006535D4 /* VenueDelegate.swift */,
+				DECF34F91E2BA275006535D4 /* VenueDataSource.swift */,
+				DE2FA9831E2B8239009E3556 /* VenueCell.swift */,
+				DE2FA9841E2B8239009E3556 /* VenueCell.xib */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -157,7 +160,8 @@
 		DE2FA9871E2B8708009E3556 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DECF34FF1E2BCE93006535D4 /* Venue */,
+				DE2FA9881E2B87E0009E3556 /* Venue.swift */,
+				DE2FA98A1E2B87F0009E3556 /* VenueAPIClient.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -215,8 +219,8 @@
 		DE337C711E275B760008CDA6 /* Chapter2 */ = {
 			isa = PBXGroup;
 			children = (
-				DE337C741E2768340008CDA6 /* ViewModel */,
 				DE337C731E27682E0008CDA6 /* Model */,
+				DE337C741E2768340008CDA6 /* ViewModel */,
 				DE337C721E2768240008CDA6 /* ViewController */,
 			);
 			name = Chapter2;
@@ -301,34 +305,6 @@
 				DE4E479A1E24A01600152472 /* Info.plist */,
 			);
 			path = RxSwiftPracticeNoteUITests;
-			sourceTree = "<group>";
-		};
-		DECF34FB1E2BCE5D006535D4 /* Venue */ = {
-			isa = PBXGroup;
-			children = (
-				DECF34F71E2BA25D006535D4 /* VenueDelegate.swift */,
-				DECF34F91E2BA275006535D4 /* VenueDataSource.swift */,
-				DE2FA9831E2B8239009E3556 /* VenueCell.swift */,
-				DE2FA9841E2B8239009E3556 /* VenueCell.xib */,
-			);
-			name = Venue;
-			sourceTree = "<group>";
-		};
-		DECF34FD1E2BCE74006535D4 /* Venue */ = {
-			isa = PBXGroup;
-			children = (
-				DE2FA98C1E2B8815009E3556 /* VenueViewModel.swift */,
-			);
-			name = Venue;
-			sourceTree = "<group>";
-		};
-		DECF34FF1E2BCE93006535D4 /* Venue */ = {
-			isa = PBXGroup;
-			children = (
-				DE2FA9881E2B87E0009E3556 /* Venue.swift */,
-				DE2FA98A1E2B87F0009E3556 /* VenueAPIClient.swift */,
-			);
-			name = Venue;
 			sourceTree = "<group>";
 		};
 		E93EEC4056B782230A2C3FFC /* Pods */ = {

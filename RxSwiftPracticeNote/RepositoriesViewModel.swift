@@ -52,7 +52,7 @@ struct RepositoriesViewModel {
         
         /**
          * Observableな変数に対して、「.subscribeOn」→「.observeOn」→「.observeOn」...という形で数珠つなぎで処理を実行
-         * 処理の終端まで無事にたどり着いた場合には、
+         * 処理の終端まで無事にたどり着いた場合には、ObservableをDriverに変換して返却する
          *
          * (参考)RxSwiftで実行するSchedulerの作り方とお行儀良く扱うためのメモ
          * http://blog.sgr-ksmt.org/2016/03/15/rxswift_scheduler/
