@@ -13,9 +13,14 @@ UIまわりの実装や機能作成に関わる部分を中心に今後も日本
 
 ※ コメントの日本語に関しておかしな表現等がございましたらissueやpull requestを頂けますと幸いです。
 
+### キャプチャ画像
+
+![RxSwift練習記録ノート（前編）](https://qiita-image-store.s3.amazonaws.com/0/17400/daf8adf4-baf8-991b-d30a-c2644c392159.jpeg)
+![RxSwift練習記録ノート（後編）](https://qiita-image-store.s3.amazonaws.com/0/17400/9c5e54df-b442-16d7-db39-751aa10666b4.jpeg)
+
 ### サンプルの解説
 
 下記のQiita記事にて収録サンプルに関する解説でポイントとなる部分や実装に関する参考資料をまとめたものを掲載しております。
 
 + [RxSwiftでの実装練習の記録ノート（前編：Observerパターンの例とUITableViewの例）](http://qiita.com/fumiyasac@github/items/90d1ebaa0cd8c4558d96)
-+ 後編は現在準備中ではありますが近日中にまとめる予定です。
++ [RxSwiftでの実装練習の記録ノート（後編：DriverパターンとAPIへの通信を伴うMVVM構成のサンプル例）](http://qiita.com/fumiyasac@github/items/da762ea512484a8291a3)
