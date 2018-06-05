@@ -11,6 +11,11 @@ import RxSwift
 import RxCocoa
 
 /*
+  ===========
+  2018/06/05 XCode9.4 & Swift4.1系へコンバート対応
+  対応内容まとめ: メソッドの書き方が変わっていた部分の対応(全体的に)
+  ===========
+
  【Warming Up】テキストフィールドやボタンコレクションで挨拶文を作るプラクティス
 
  このサンプルを作成する上での参考資料
@@ -54,6 +59,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     //初期化時の初期値の設定
+    //MEMO: たぶんDeprecatedかも...
     let lastSelectedGreeting: Variable<String> = Variable("こんにちは")
     
     //(注意)ここはOutletCollectionで紐づける
@@ -80,7 +86,7 @@ class ViewController: UIViewController {
 
         //(bindTo)イベントのプロパティ接続をする ※bindToの引数内に表示対象のUIパーツを設定
         //(DisposeBag)購読[監視?]状態からの解放を行う
-        freewordWithNameObservable.bindTo(greetingLabel.rx.text).addDisposableTo(disposeBag)
+        freewordWithNameObservable.bind(to: greetingLabel.rx.text).disposed(by: disposeBag)
 
         //セグメントコントロールにおいて、値変化のイベントを観測対象にする
         let segmentedControlObservable: Observable<Int> = stateSegmentedControl.rx.value.asObservable()
@@ -101,7 +107,7 @@ class ViewController: UIViewController {
 
         //(bindTo)イベントのプロパティ接続をする ※bindToの引数内に表示対象のUIパーツを設定
         //(DisposeBag)観測状態からの解放を行う
-        greetingTextFieldEnabledObservable.bindTo(freeTextField.rx.isEnabled).addDisposableTo(disposeBag)
+        greetingTextFieldEnabledObservable.bind(to: freeTextField.rx.isEnabled).disposed(by: disposeBag)
         
         //テキストフィールドが編集を受け付ける状態かを検知して、ボタン部分が選択可能かを返す
         //(map)別の要素に変換する ※BoolからBoolへ変換
@@ -115,13 +121,13 @@ class ViewController: UIViewController {
             
             //(bindTo)イベントのプロパティ接続をする ※bindToの引数内に表示対象のUIパーツを設定
             //(DisposeBag)観測状態からの解放を行う
-            buttonsEnabledObservable.bindTo(button.rx.isEnabled).addDisposableTo(disposeBag)
+            buttonsEnabledObservable.bind(to: button.rx.isEnabled).disposed(by: disposeBag)
             
             //メンバ変数：lastSelectedGreetingにボタンのタイトル名を引き渡す
             //(subscribe)イベントが発生した場合にイベントのステータスに応じての処理を行う
             button.rx.tap.subscribe(onNext: { (nothing: Void) in
                 self.lastSelectedGreeting.value = button.currentTitle!
-            }).addDisposableTo(disposeBag)
+            }).disposed(by: disposeBag)
         }
 
         //挨拶の表示ラベルにおいて、テキスト表示のイベントを監視対象にする
@@ -140,7 +146,7 @@ class ViewController: UIViewController {
         //最終的な挨拶文章のイベント
         //(bindTo)イベントのプロパティ接続をする ※最終的な挨拶文章を表示する
         //(DisposeBag)購読[監視?]状態からの解放を行う
-        finalGreetingObservable.bindTo(greetingLabel.rx.text).addDisposableTo(disposeBag)
+        finalGreetingObservable.bind(to: greetingLabel.rx.text).disposed(by: disposeBag)
 
 
         /* ----- メモ2. subscribeメソッドでのイベントの受け取り -----

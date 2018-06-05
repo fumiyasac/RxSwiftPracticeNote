@@ -11,6 +11,11 @@ import RxSwift
 import RxDataSources
 
 /*
+  ===========
+  2018/06/05 XCode9.4 & Swift4.1系へコンバート対応
+  対応内容まとめ: RxTableViewSectionedReloadDataSourceの書き方が変わっていた部分の対応
+  ===========
+ 
  【Chapter1】ラーメンの一覧をRxDataSourcesを利用してUITableViewに一覧表示をするプラクティス
  
  このサンプルを作成する上での参考資料
@@ -40,7 +45,22 @@ class RamenListController: UIViewController {
     let ramensData = RamenPresenter()
     
     //データソースの定義
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Ramen>>()
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Ramen>>(
+
+        //データソースを元にしてセルの生成を行う
+        configureCell: { (_, tableView, indexPath, ramens) in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            cell.textLabel?.text = ramens.name
+            cell.detailTextLabel?.text = ramens.taste
+            cell.imageView?.image = ramens.image
+            return cell
+        },
+
+        //データソースの定義を元にセクションヘッダーを生成する ※動画サンプルと形式が違う部分
+        titleForHeaderInSection: { dataSource, sectionIndex in
+            return dataSource[sectionIndex].model
+        }
+    )
     
     //UIパーツの配置
     @IBOutlet weak var ramenTableView: UITableView!
@@ -48,26 +68,12 @@ class RamenListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //データソースを元にしてセルの生成を行う
-        dataSource.configureCell = {_, tableView, indexPath, ramens in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-            cell.textLabel?.text = ramens.name
-            cell.detailTextLabel?.text = ramens.taste
-            cell.imageView?.image = ramens.image
-            return cell
-        }
-
         //作成したデータと表示するUITableViewをBindして表示する
-        ramensData.ramens.bindTo(ramenTableView.rx.items(dataSource: dataSource)).addDisposableTo(disposeBag)
+        ramensData.ramens.bind(to: ramenTableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
 
         //RxSwiftを利用してUITableViewDelegateを適用する
         //(参考) https://cocoapods.org/pods/RxReusable
-        ramenTableView.rx.setDelegate(self).addDisposableTo(disposeBag)
-
-        //データソースの定義を元にセクションヘッダーを生成する ※動画サンプルと形式が違う部分
-        dataSource.titleForHeaderInSection = { (ds, section: Int) -> String in
-            return ds[section].model
-        }
+        ramenTableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
 
     override func didReceiveMemoryWarning() {

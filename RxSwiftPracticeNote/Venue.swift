@@ -35,11 +35,11 @@ struct Venue: CustomStringConvertible {
     var description: String {
         return "<venueId=\(venueId)"
             + ", name=\(name)"
-            + ", address=\(address)"
-            + ", latitude=\(latitude), longitude=\(longitude)"
-            + ", state=\(state)"
-            + ", city=\(city)"
-            + ", categoryIconURL=\(categoryIconURL)>"
+            + ", address=\(String(describing: address))"
+            + ", latitude=\(String(describing: latitude)), longitude=\(String(describing: longitude))"
+            + ", state=\(String(describing: state))"
+            + ", city=\(String(describing: city))"
+            + ", categoryIconURL=\(String(describing: categoryIconURL))>"
     }
     
     //イニシャライザ（取得したForesquareAPIからのレスポンスに対して必要なものを抽出する）

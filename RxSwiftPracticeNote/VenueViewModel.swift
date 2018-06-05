@@ -41,6 +41,6 @@ class VenueViewModel {
                     ()
                 }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 }

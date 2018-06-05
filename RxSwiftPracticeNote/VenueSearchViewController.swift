@@ -12,6 +12,14 @@ import RxCocoa
 import SafariServices
 
 /*
+  ===========
+  2018/06/05 XCode9.4 & Swift4.1系へコンバート対応
+  対応内容まとめ: ViewController - ViewModel - Modelの処理の書き方を修正
+    その1: ViewController, ViewModel → メソッドの書き方が変わっていた部分の対応(全体的に)
+    その2: Model(VenueAPIClient)     → APIクライアントのアクセスから結果のハンドリング処理部分の修正
+    その3: Model(Venue)              → RxSwiftとはあまり関係ない部分の修正
+ ===========
+
  【Chapter3】FoursquareAPIを利用して検索した場所を表示するプラクティス
  
  このサンプルを作成する上での参考資料
@@ -81,7 +89,7 @@ class VenueSearchViewController: UIViewController {
                 //ViewModelに定義したfetchメソッドを実行
                 self.venueViewModel.fetch(query: query!)
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         //データの取得ができたらテーブルビューのデータソースの定義に則って表示する値を設定する
         venueViewModel.venues
@@ -89,13 +97,13 @@ class VenueSearchViewController: UIViewController {
             .drive (
                 self.venueSearchTableView.rx.items(dataSource: self.venueDataSource)
             )
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         //テーブルビューのセルを選択した際の処理
         venueSearchTableView.rx.itemSelected
             
             //テーブルビューのセルを選択した場合にはindexPathを元にセルの情報を取得する
-            .bindNext { [weak self] indexPath in
+            .bind { [weak self] indexPath in
                 
                 //この値を元に具体的な処理を記載する
                 if let venue = self?.venueViewModel.venues.value[indexPath.row] {
@@ -129,7 +137,7 @@ class VenueSearchViewController: UIViewController {
 
                 }
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
 
     func setupUI() {
