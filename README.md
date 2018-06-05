@@ -1,6 +1,16 @@
 # RxSwiftPracticeNote
 [ING]RxSwiftの練習記録ノート（iOS Sample Study: Swift）
 
+### 更新情報
+
++ 2018.06.05: SwiftおよびXCodeのバージョンアップ
+
+### 動作環境
+
++ XCode 9.4
++ CocoaPods 1.5
++ Swift 4.1
+
 私自身苦手意識があったRxSwiftの実装を掴むために個人的な備忘録を兼ねて作成（というか写経）したサンプル集になります。
 UIまわりの実装や機能作成に関わる部分を中心に今後も日本語でドキュメンテーションをしてサンプルケースを追加する予定です。
 
