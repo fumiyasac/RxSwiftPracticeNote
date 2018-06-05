@@ -13,6 +13,11 @@ import ObjectMapper
 import RxAlamofire
 
 /*
+  ===========
+  2018/06/05 XCode9.4 & Swift4.1系へコンバート対応
+  対応内容まとめ: メソッドの書き方が変わっていた部分の対応(全体的に)
+  ===========
+
  【Chapter2】GithubのAPIを利用してuser名を検索してリポジトリ一覧をUITableViewに一覧表示をするプラクティス
  
  このサンプルを作成する上での参考資料
@@ -54,7 +59,7 @@ class RepositoryListController: UIViewController {
         return nameSearchBar.rx.text
             .filter { $0 != nil }
             .map { $0! }
-            .filter { $0.characters.count > 0 }
+            .filter { $0.count > 0 }
             .debounce(0.5, scheduler: MainScheduler.instance) //0.5秒のバッファを持たせる
             .distinctUntilChanged()
     }
@@ -102,7 +107,7 @@ class RepositoryListController: UIViewController {
                 
                 return cell
             }
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
         
         //リクエストした結果の更新を元に表示に関する処理を行う（取得したデータの件数に応じたエラーハンドリング処理）
         repositoriesViewModel
@@ -121,7 +126,7 @@ class RepositoryListController: UIViewController {
                     }
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
     }
     
     //キーボードのイベント監視の設定 ＆ テーブルビューに付与したGestureRecognizerに関する処理

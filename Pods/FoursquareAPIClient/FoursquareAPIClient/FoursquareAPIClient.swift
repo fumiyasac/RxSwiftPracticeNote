@@ -13,6 +13,51 @@ public enum HTTPMethod: String {
     case post = "POST"
 }
 
+public enum Result<T, Error> {
+    case success(T)
+    case failure(Error)
+
+    init(value: T) {
+        self = .success(value)
+    }
+
+    init(error: Error) {
+        self = .failure(error)
+    }
+}
+
+public enum FoursquareClientError: Error {
+    case connectionError(Error)
+    case responseParseError(Error)
+    case apiError(FoursquareAPIError)
+}
+
+public struct FoursquareAPIError: Error {
+    public let errorType: String
+    public let errorDetail: String
+
+    init(json: Any) {
+        guard let dictionary = json as? [String : Any] else {
+            fatalError("Invalid json: \(json).")
+        }
+
+        guard let meta = dictionary["meta"] as? [String : Any] else {
+            fatalError("meta section not found: \(json).")
+        }
+
+        guard let errorType = meta["errorType"] as? String else {
+            fatalError("errorType not found: \(json).")
+        }
+
+        guard let errorDetail = meta["errorDetail"] as? String else {
+            fatalError("errorDetail not found: \(json).")
+        }
+
+        self.errorType = errorType
+        self.errorDetail = errorDetail
+    }
+}
+
 public class FoursquareAPIClient {
 
     private let kAPIBaseURLString = "https://api.foursquare.com/v2/"
@@ -51,10 +96,15 @@ public class FoursquareAPIClient {
         self.version = version
     }
 
+    /// Request API
+    /// - parameter path: API path e.g. photos/add
+    /// - parameter method: .get (default) or .post
+    /// - parameter parameter: Parameters as a dictinary
+    /// - parameter completion: Completion handler
     public func request(path: String,
                         method: HTTPMethod = .get,
                         parameter: [String: String],
-                        completion: ((Data?, Error?) -> ())?) {
+                        completion: @escaping (Result<Data, FoursquareClientError>) -> Void) {
         // Add necessary parameters
         var parameter = parameter
         if let accessToken = self.accessToken {
@@ -87,16 +137,97 @@ public class FoursquareAPIClient {
         }
 
         let task = self.session.dataTask(with: request as URLRequest, completionHandler: {
-            data, _, error in
-
-            if let error = error {
-                completion?(nil, error)
-                return
+            data, response, error in
+            switch (data, response, error) {
+            case (_, _, let error?):
+                completion(Result(error: .connectionError(error)))
+            case (let data?, let response?, _):
+                if case (200..<300)? = (response as? HTTPURLResponse)?.statusCode {
+                    completion(Result(value: data))
+                } else {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        completion(Result(error: .apiError(FoursquareAPIError(json: json))))
+                    } catch {
+                        completion(Result(error: .responseParseError(error)))
+                    }
+                }
+            default:
+                fatalError("invalid response combination \(data.debugDescription), \(response.debugDescription), \(error.debugDescription).")
             }
-
-            completion?(data, error)
         })
         
+        task.resume()
+    }
+
+    /// Upload jpeg image
+    /// - parameter path: API path e.g. photos/add
+    /// - parameter parameter: Parameters as a dictinary
+    /// - parameter imageData: Should be "image/jpeg". Max 5MB
+    /// - parameter completion: Completion handler
+    public func upload(path: String,
+                       parameter: [String: String],
+                       imageData: Data,
+                       completion: @escaping (Result<Data, FoursquareClientError>) -> Void) {
+        let urlString = kAPIBaseURLString + path
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL: ", urlString)
+            return
+        }
+        var request = URLRequest(url: url)
+        request.httpMethod = HTTPMethod.post.rawValue
+
+        let boundary = UUID().uuidString
+        let contentType = "multipart/form-data; boundary=" + boundary
+        request.addValue(contentType, forHTTPHeaderField: "Content-Type")
+        var body = Data()
+        let appendStringBlock = { (string: String) in
+            body.append(string.data(using: String.Encoding.utf8, allowLossyConversion: true)!)
+        }
+
+        // Make necessary parameters
+        var parameter = parameter
+        if let accessToken = self.accessToken {
+            parameter["oauth_token"] = accessToken
+        } else if let clientId = self.clientId, let clientSecret = self.clientSecret {
+            parameter["client_id"] = clientId
+            parameter["client_secret"] = clientSecret
+        }
+        parameter["v"] = self.version
+
+        for (key, value) in parameter {
+            appendStringBlock("--\(boundary)\r\n")
+            appendStringBlock("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+            appendStringBlock("\(value)\r\n")
+        }
+
+        appendStringBlock("\r\n--\(boundary)\r\n")
+        appendStringBlock("Content-Disposition: form-data; name=\"photo\"; filename=\"photo.jpg\"\r\n")
+        appendStringBlock("Content-Type: image/jpg\r\n\r\n")
+        body.append(imageData)
+        appendStringBlock("\r\n--\(boundary)--\r\n")
+
+        let task = self.session.uploadTask(with: request as URLRequest, from: body, completionHandler: {
+            data, response, error in
+            switch (data, response, error) {
+            case (_, _, let error?):
+                completion(Result(error: .connectionError(error)))
+            case (let data?, let response?, _):
+                if case (200..<300)? = (response as? HTTPURLResponse)?.statusCode {
+                    completion(Result(value: data))
+                } else {
+                    do {
+                        let json = try JSONSerialization.jsonObject(with: data, options: [])
+                        completion(Result(error: .apiError(FoursquareAPIError(json: json))))
+                    } catch {
+                        completion(Result(error: .responseParseError(error)))
+                    }
+                }
+            default:
+                fatalError("invalid response combination \(data.debugDescription), \(response.debugDescription), \(error.debugDescription).")
+            }
+        })
+
         task.resume()
     }
 

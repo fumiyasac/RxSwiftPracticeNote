@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Differentiator.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FoursquareAPIClient.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -56,57 +61,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>1507976632A014932ADBE5B0E1C51DCC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3CD2BDC8C3B0591FF15BFD0B1BF5D683</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4710D1A59B3FF3CF67BA72ABA2EF565F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4F14A305F271F616B0CAF0D3CFB9B029</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>56266BA51D5A5571B9B29E1DAA96B21E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5756601B7259D150F8D20097C20C4B07</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B43918AB915242B851ABEFB5D70BE0AD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C91CC7EB5B50C42F1834790CA25AD849</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D58DAB56317F36641132EA7704F6A9DD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

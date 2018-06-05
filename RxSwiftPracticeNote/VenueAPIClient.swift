@@ -33,21 +33,25 @@ class VenuesAPIClient {
             ]
 
             //クライアントへのアクセス
+            //MEMO 2018/06/05: requestメソッドのハンドリング処理部分を書き換えています。
             client.request(path: "venues/search", parameter: parameter) {
-                [weak self] data, error in
-                
-                //データの取得と参照に関するチェックをする
-                guard let strongSelf = self, let data = data else { return }
-                
-                //APIのJSONを解析する
-                let json = JSON(data: data)
-                let venues = strongSelf.parse(venuesJSON: json["response"]["venues"])
-                
-                //パースしてきたjsonの値を通知対象にする
-                //(参考)RxSwiftの動作を深く理解する
-                //http://qiita.com/k5n/items/643cc07e3973dd1fded4
-                observer.on(.next(venues))
-                observer.on(.completed)
+                result in
+
+                switch result {
+                case .success(let data):
+                    //APIのJSONを解析する
+                    let json = try! JSON(data: data)
+                    let venues = self.parse(venuesJSON: json["response"]["venues"])
+
+                    //パースしてきたjsonの値を通知対象にする
+                    //(参考)RxSwiftの動作を深く理解する
+                    //http://qiita.com/k5n/items/643cc07e3973dd1fded4
+                    observer.on(.next(venues))
+                    observer.on(.completed)
+
+                case .failure(let error):
+                    observer.onError(error)
+                }
             }
             
             //この取得処理を監視対象からはずすための処理（自信ない...）
