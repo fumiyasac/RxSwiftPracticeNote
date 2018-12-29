@@ -18,7 +18,10 @@ import SafariServices
     その1: ViewController, ViewModel → メソッドの書き方が変わっていた部分の対応(全体的に)
     その2: Model(VenueAPIClient)     → APIクライアントのアクセスから結果のハンドリング処理部分の修正
     その3: Model(Venue)              → RxSwiftとはあまり関係ない部分の修正
- ===========
+
+  2018/12/29 XCode10.1 & Swift4.2系へコンバート対応
+  対応内容まとめ: Variableの書き直しと全体的なアップデート
+  ===========
 
  【Chapter3】FoursquareAPIを利用して検索した場所を表示するプラクティス
  
