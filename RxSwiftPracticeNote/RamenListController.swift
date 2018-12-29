@@ -14,6 +14,9 @@ import RxDataSources
   ===========
   2018/06/05 XCode9.4 & Swift4.1系へコンバート対応
   対応内容まとめ: RxTableViewSectionedReloadDataSourceの書き方が変わっていた部分の対応
+
+  2018/12/29 XCode10.1 & Swift4.2系へコンバート対応
+  対応内容まとめ: Variableの書き直しと全体的なアップデート
   ===========
  
  【Chapter1】ラーメンの一覧をRxDataSourcesを利用してUITableViewに一覧表示をするプラクティス

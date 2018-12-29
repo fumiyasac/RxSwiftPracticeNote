@@ -8,13 +8,14 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import SwiftyJSON
 import FoursquareAPIClient
 
 class VenueViewModel {
     
-    fileprivate(set) var venues = Variable<[Venue]>([])
-    
+    private(set) var venues = BehaviorRelay<[Venue]>(value: [])
+
     //ForesquareのAPIクライアントのインスタンス
     let client = VenuesAPIClient()
 
@@ -25,7 +26,7 @@ class VenueViewModel {
     init() {}
 
     //APIクライアント経由で情報を取得する
-    public func fetch(query: String = "") {
+    func fetch(query: String = "") {
 
         //APIクライアントのメソッドを実行する
         client.search(query: query)
@@ -34,7 +35,7 @@ class VenueViewModel {
                 //結果取得ができた際には、APIクライアントの変数:venuesに結果の値を入れる
                 switch result {
                 case .next(let value):
-                    self?.venues.value = value
+                    self?.venues.accept(value)
                 case .error(let error):
                     print(error)
                 case .completed:

@@ -29,7 +29,7 @@ struct RepositoriesViewModel {
     lazy var rx_repositories: Driver<[Repository]> = self.fetchRepositories()
     
     //監視対象のメンバ変数
-    fileprivate var repositoryName: Observable<String>
+    private var repositoryName: Observable<String>
     
     //監視対象の変数初期化処理(イニシャライザ)
     init(withNameObservable nameObservable: Observable<String>) {
@@ -48,7 +48,7 @@ struct RepositoriesViewModel {
      * (参考2)RxSwiftをつかってMVVMアーキテクチャを実装する
      * https://tech.recruit-sumai.co.jp/rxswift-mvvm/
      */
-    fileprivate func fetchRepositories() -> Driver<[Repository]> {
+    private func fetchRepositories() -> Driver<[Repository]> {
         
         /**
          * Observableな変数に対して、「.subscribeOn」→「.observeOn」→「.observeOn」...という形で数珠つなぎで処理を実行

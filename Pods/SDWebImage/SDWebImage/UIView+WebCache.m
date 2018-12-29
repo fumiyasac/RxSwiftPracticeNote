@@ -64,9 +64,9 @@ static char TAG_ACTIVITY_SHOW;
     [self sd_cancelImageLoadOperationWithKey:validOperationKey];
     objc_setAssociatedObject(self, &imageURLKey, url, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
+    dispatch_group_t group = context[SDWebImageInternalSetImageGroupKey];
     if (!(options & SDWebImageDelayPlaceholder)) {
-        if ([context valueForKey:SDWebImageInternalSetImageGroupKey]) {
-            dispatch_group_t group = [context valueForKey:SDWebImageInternalSetImageGroupKey];
+        if (group) {
             dispatch_group_enter(group);
         }
         dispatch_main_async_safe(^{
@@ -86,10 +86,8 @@ static char TAG_ACTIVITY_SHOW;
         self.sd_imageProgress.totalUnitCount = 0;
         self.sd_imageProgress.completedUnitCount = 0;
         
-        SDWebImageManager *manager;
-        if ([context valueForKey:SDWebImageExternalCustomManagerKey]) {
-            manager = (SDWebImageManager *)[context valueForKey:SDWebImageExternalCustomManagerKey];
-        } else {
+        SDWebImageManager *manager = [context objectForKey:SDWebImageExternalCustomManagerKey];
+        if (!manager) {
             manager = [SDWebImageManager sharedManager];
         }
         
@@ -152,30 +150,27 @@ static char TAG_ACTIVITY_SHOW;
                 transition = sself.sd_imageTransition;
             }
 #endif
-            if ([context valueForKey:SDWebImageInternalSetImageGroupKey]) {
-                dispatch_group_t group = [context valueForKey:SDWebImageInternalSetImageGroupKey];
-                dispatch_group_enter(group);
-                dispatch_main_async_safe(^{
+            dispatch_main_async_safe(^{
+                if (group) {
+                    dispatch_group_enter(group);
+                }
 #if SD_UIKIT || SD_MAC
-                    [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock transition:transition cacheType:cacheType imageURL:imageURL];
+                [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock transition:transition cacheType:cacheType imageURL:imageURL];
 #else
-                    [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock];
+                [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock];
 #endif
-                });
-                // ensure completion block is called after custom setImage process finish
-                dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                if (group) {
+                    // compatible code for FLAnimatedImage, because we assume completedBlock called after image was set. This will be removed in 5.x
+                    BOOL shouldUseGroup = [objc_getAssociatedObject(group, &SDWebImageInternalSetImageGroupKey) boolValue];
+                    if (shouldUseGroup) {
+                        dispatch_group_notify(group, dispatch_get_main_queue(), callCompletedBlockClojure);
+                    } else {
+                        callCompletedBlockClojure();
+                    }
+                } else {
                     callCompletedBlockClojure();
-                });
-            } else {
-                dispatch_main_async_safe(^{
-#if SD_UIKIT || SD_MAC
-                    [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock transition:transition cacheType:cacheType imageURL:imageURL];
-#else
-                    [sself sd_setImage:targetImage imageData:targetData basedOnClassOrViaCustomSetImageBlock:setImageBlock];
-#endif
-                    callCompletedBlockClojure();
-                });
-            }
+                }
+            });
         }];
         [self sd_setImageLoadOperation:operation forKey:validOperationKey];
     } else {

@@ -60,7 +60,7 @@ class VenuesAPIClient {
     }
     
     //Venue.swift(Model層)で定義した形で取得した値を格納する
-    fileprivate func parse(venuesJSON: JSON) -> [Venue] {
+    private func parse(venuesJSON: JSON) -> [Venue] {
         var venues = [Venue]()
         for (key: _, venueJSON: JSON) in venuesJSON {
             venues.append(Venue(json: JSON))

@@ -14,6 +14,9 @@ import RxCocoa
   ===========
   2018/06/05 XCode9.4 & Swift4.1系へコンバート対応
   対応内容まとめ: メソッドの書き方が変わっていた部分の対応(全体的に)
+
+  2018/12/29 XCode10.1 & Swift4.2系へコンバート対応
+  対応内容まとめ: Variableの書き直しと全体的なアップデート
   ===========
 
  【Warming Up】テキストフィールドやボタンコレクションで挨拶文を作るプラクティス
@@ -59,9 +62,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     
     //初期化時の初期値の設定
-    //MEMO: たぶんDeprecatedかも...
-    let lastSelectedGreeting: Variable<String> = Variable("こんにちは")
-    
+    //MEMO: VariableがDeprecatedになったのでBehaviorRelayへ置換する
+    let lastSelectedGreeting: BehaviorRelay<String> = BehaviorRelay<String>(value: "こんにちは")
+
     //(注意)ここはOutletCollectionで紐づける
     //(参考)アウトレットコレクションを使う
     //http://develop.calmscape.net/dev/220/
@@ -126,7 +129,7 @@ class ViewController: UIViewController {
             //メンバ変数：lastSelectedGreetingにボタンのタイトル名を引き渡す
             //(subscribe)イベントが発生した場合にイベントのステータスに応じての処理を行う
             button.rx.tap.subscribe(onNext: { (nothing: Void) in
-                self.lastSelectedGreeting.value = button.currentTitle!
+                self.lastSelectedGreeting.accept(button.currentTitle!)
             }).disposed(by: disposeBag)
         }
 
