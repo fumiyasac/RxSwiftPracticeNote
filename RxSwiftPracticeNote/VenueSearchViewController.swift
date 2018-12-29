@@ -147,22 +147,22 @@ class VenueSearchViewController: UIViewController {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillShow(_:)),
-            name: NSNotification.Name.UIKeyboardWillShow,
+            name: UIResponder.keyboardWillShowNotification,
             object: nil)
         
         //Case2. キーボードを閉じた場合のイベント
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(keyboardWillHide(_:)),
-            name: NSNotification.Name.UIKeyboardWillHide,
+            name: UIResponder.keyboardWillHideNotification,
             object: nil)
     }
     
     //キーボード表示時に発動されるメソッド
-    func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardWillShow(_ notification: Notification) {
         
         //キーボードのサイズを取得する（英語のキーボードが基準になるので日本語のキーボードだと少し見切れてしまう）
-        guard let keyboardFrame = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
+        guard let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
         //一覧表示用テーブルビューのAutoLayoutの制約を更新して高さをキーボード分だけ縮める
         bottomVenueTableConstraint.constant = keyboardFrame.height
@@ -172,7 +172,7 @@ class VenueSearchViewController: UIViewController {
     }
     
     //キーボード非表示表示時に発動されるメソッド
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         
         //一覧表示用テーブルビューのAutoLayoutの制約を更新して高さを元に戻す
         bottomVenueTableConstraint.constant = 0.0
