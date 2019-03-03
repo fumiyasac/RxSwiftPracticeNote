@@ -3,14 +3,13 @@
 
 ### 更新情報
 
-+ 2018.12.29: Swift4.2 & Xcode10.1へのコンバートとDeprecatedになる箇所への対応
 + 2018.06.05: SwiftおよびXCodeのバージョンアップ
 
 ### 動作環境
 
-+ XCode 10.1
-+ CocoaPods 1.5.3
-+ Swift 4.2
++ XCode 9.4
++ CocoaPods 1.5
++ Swift 4.1
 
 私自身苦手意識があったRxSwiftの実装を掴むために個人的な備忘録を兼ねて作成（というか写経）したサンプル集になります。
 UIまわりの実装や機能作成に関わる部分を中心に今後も日本語でドキュメンテーションをしてサンプルケースを追加する予定です。
@@ -35,5 +34,3 @@ UIまわりの実装や機能作成に関わる部分を中心に今後も日本
 
 + [RxSwiftでの実装練習の記録ノート（前編：Observerパターンの例とUITableViewの例）](http://qiita.com/fumiyasac@github/items/90d1ebaa0cd8c4558d96)
 + [RxSwiftでの実装練習の記録ノート（後編：DriverパターンとAPIへの通信を伴うMVVM構成のサンプル例）](http://qiita.com/fumiyasac@github/items/da762ea512484a8291a3)
-
-※ 記事の中にも随時修正が必要な部分については追記をしています。
