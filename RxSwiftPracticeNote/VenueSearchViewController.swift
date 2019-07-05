@@ -85,9 +85,9 @@ class VenueSearchViewController: UIViewController {
         venueSearchTableView.register(nibTableView, forCellReuseIdentifier: "VenueCell")
         
         //検索バーの変化から0.5秒後に.driveメソッド内の処理を実行する
-        venueSearchBar.rx.text.asDriver()
-            .throttle(0.5)
-            .drive(onNext: { query in
+        venueSearchBar.rx.text.asObservable()
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .subscribe(onNext: { query in
                 
                 //ViewModelに定義したfetchメソッドを実行
                 self.venueViewModel.fetch(query: query!)
