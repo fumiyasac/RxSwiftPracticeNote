@@ -14,7 +14,7 @@ import RxSwift
 extension Reactive where Base: UITextView {
     /// Reactive wrapper for `text` property
     public var text: ControlProperty<String?> {
-        return value
+        value
     }
     
     /// Reactive wrapper for `text` property.
@@ -30,7 +30,7 @@ extension Reactive where Base: UITextView {
                 // This observe on is here because text storage
                 // will emit event while process is not completely done,
                 // so rebinding a value will cause an exception to be thrown.
-                .observeOn(MainScheduler.asyncInstance)
+                .observe(on:MainScheduler.asyncInstance)
                 .map { _ in
                     return textView?.textStorage.string
                 }
@@ -66,7 +66,7 @@ extension Reactive where Base: UITextView {
                 // This observe on is here because attributedText storage
                 // will emit event while process is not completely done,
                 // so rebinding a value will cause an exception to be thrown.
-                .observeOn(MainScheduler.asyncInstance)
+                .observe(on:MainScheduler.asyncInstance)
                 .map { _ in
                     return textView?.attributedText
                 }
@@ -91,7 +91,7 @@ extension Reactive where Base: UITextView {
     /// Reactive wrapper for `delegate` message.
     public var didBeginEditing: ControlEvent<()> {
        return ControlEvent<()>(events: self.delegate.methodInvoked(#selector(UITextViewDelegate.textViewDidBeginEditing(_:)))
-            .map { a in
+            .map { _ in
                 return ()
             })
     }
@@ -99,7 +99,7 @@ extension Reactive where Base: UITextView {
     /// Reactive wrapper for `delegate` message.
     public var didEndEditing: ControlEvent<()> {
         return ControlEvent<()>(events: self.delegate.methodInvoked(#selector(UITextViewDelegate.textViewDidEndEditing(_:)))
-            .map { a in
+            .map { _ in
                 return ()
             })
     }
@@ -107,7 +107,7 @@ extension Reactive where Base: UITextView {
     /// Reactive wrapper for `delegate` message.
     public var didChange: ControlEvent<()> {
         return ControlEvent<()>(events: self.delegate.methodInvoked(#selector(UITextViewDelegate.textViewDidChange(_:)))
-            .map { a in
+            .map { _ in
                 return ()
             })
     }
@@ -115,7 +115,7 @@ extension Reactive where Base: UITextView {
     /// Reactive wrapper for `delegate` message.
     public var didChangeSelection: ControlEvent<()> {
         return ControlEvent<()>(events: self.delegate.methodInvoked(#selector(UITextViewDelegate.textViewDidChangeSelection(_:)))
-            .map { a in
+            .map { _ in
                 return ()
             })
     }

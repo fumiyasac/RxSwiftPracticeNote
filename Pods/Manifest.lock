@@ -1,27 +1,28 @@
 PODS:
-  - Alamofire (4.8.0)
-  - Differentiator (3.1.0)
-  - FoursquareAPIClient (4.2.0)
-  - ObjectMapper (3.4.2)
-  - RxAlamofire/Core (4.3.0):
-    - Alamofire (~> 4.5)
-    - RxSwift (~> 4)
-  - RxAlamofire/RxCocoa (4.3.0):
+  - Alamofire (5.4.1)
+  - Differentiator (5.0.0)
+  - FoursquareAPIClient (5.0.1)
+  - ObjectMapper (4.2.0)
+  - RxAlamofire/Core (6.1.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 6.0)
+  - RxAlamofire/RxCocoa (6.1.1):
     - RxAlamofire/Core
-    - RxCocoa (~> 4)
-  - RxAtomic (4.4.0)
-  - RxCocoa (4.4.0):
-    - RxSwift (~> 4.0)
-  - RxDataSources (3.1.0):
-    - Differentiator (~> 3.0)
-    - RxCocoa (~> 4.0)
-    - RxSwift (~> 4.0)
-  - RxSwift (4.4.0):
-    - RxAtomic (~> 4.4)
-  - SDWebImage (4.4.3):
-    - SDWebImage/Core (= 4.4.3)
-  - SDWebImage/Core (4.4.3)
-  - SwiftyJSON (4.2.0)
+    - RxCocoa (~> 6.0)
+  - RxCocoa (6.0.0):
+    - RxRelay (= 6.0.0)
+    - RxSwift (= 6.0.0)
+  - RxDataSources (5.0.0):
+    - Differentiator (~> 5.0)
+    - RxCocoa (~> 6.0)
+    - RxSwift (~> 6.0)
+  - RxRelay (6.0.0):
+    - RxSwift (= 6.0.0)
+  - RxSwift (6.0.0)
+  - SDWebImage (5.10.2):
+    - SDWebImage/Core (= 5.10.2)
+  - SDWebImage/Core (5.10.2)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - FoursquareAPIClient
@@ -34,32 +35,32 @@ DEPENDENCIES:
   - SwiftyJSON
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
     - Differentiator
     - FoursquareAPIClient
     - ObjectMapper
     - RxAlamofire
-    - RxAtomic
     - RxCocoa
     - RxDataSources
+    - RxRelay
     - RxSwift
     - SDWebImage
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
-  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
-  FoursquareAPIClient: 3cb02bb68cfdbc524741bf3ba110f94679082b46
-  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
-  RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
-  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
-  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
-  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
-  SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
-  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
+  FoursquareAPIClient: 83c932298e905634e0c0cce90e3f1d6897c7a7a9
+  ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
+  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
+  RxCocoa: 3f79328fafa3645b34600f37c31e64c73ae3a80e
+  RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
+  RxRelay: 8d593be109c06ea850df027351beba614b012ffb
+  RxSwift: c14e798c59b9f6e9a2df8fd235602e85cc044295
+  SDWebImage: b969dcfc02c40a5da71eac0b03b8f1a0c794a86f
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
 PODFILE CHECKSUM: b4876ff9bfd19718603883b6eac82d7440aca0f8
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.10.0
