@@ -63,7 +63,7 @@ class RepositoryListController: UIViewController {
             .filter { $0 != nil }
             .map { $0! }
             .filter { $0.count > 0 }
-            .debounce(0.5, scheduler: MainScheduler.instance) //0.5秒のバッファを持たせる
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance) //0.5秒のバッファを持たせる
             .distinctUntilChanged()
     }
 
