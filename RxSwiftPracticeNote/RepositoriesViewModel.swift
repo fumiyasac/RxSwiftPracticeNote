@@ -60,7 +60,7 @@ struct RepositoriesViewModel {
         return repositoryName
             
             //処理Phase1: 見た目に関する処理
-            .subscribeOn(MainScheduler.instance) //メインスレッドで処理を実行する
+            .subscribe(on: MainScheduler.instance) //メインスレッドで処理を実行する
             .do(onNext: { response in
 
                 //ネットワークインジケータを表示状態にする
@@ -68,14 +68,14 @@ struct RepositoriesViewModel {
             })
             
             //処理Phase2: 下記のAPI(GithubAPI)のエンドポイントへRxAlamofire経由でのアクセスをする
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background)) //バックグラウンドスレッドで処理を実行する
+            .observe(on: ConcurrentDispatchQueueScheduler(qos: .background)) //バックグラウンドスレッドで処理を実行する
             .flatMapLatest { text in
                 
                 //APIからデータを取得する
                 return RxAlamofire
                     .requestJSON(.get, "https://api.github.com/users/\(text)/repos")
                     .debug()
-                    .catchError { error in
+                    .catch { error in
                         
                         //エラー発生時の処理(この場合は値を持たせずにここで処理を止めてしまう)
                         return Observable.never()
@@ -83,7 +83,7 @@ struct RepositoriesViewModel {
             }
             
             //処理Phase3: ModelクラスとObjectMapperで定義した形のデータを作成する
-            .observeOn(ConcurrentDispatchQueueScheduler(qos: .background)) //バックグラウンドスレッドで処理を実行する
+            .observe(on: ConcurrentDispatchQueueScheduler(qos: .background)) //バックグラウンドスレッドで処理を実行する
             .map { (response, json) -> [Repository] in
 
                 //APIからレスポンスが取得できた場合にはModelクラスに定義した形のデータを返却する
@@ -95,7 +95,7 @@ struct RepositoriesViewModel {
             }
 
             //処理Phase4: データが受け取れた際の見た目に関する処理とDriver変換
-            .observeOn(MainScheduler.instance) //メインスレッドで処理を実行する
+            .observe(on: MainScheduler.instance) //メインスレッドで処理を実行する
             .do(onNext: { response in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false //ネットワークインジケータを非表示状態にする
             })

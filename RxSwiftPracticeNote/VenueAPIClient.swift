@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import SwiftyJSON
 import FoursquareAPIClient
+import Alamofire
 
 //Foresquareのベニュー情報を取得用のクライアント部分(実際のデータ通信部分)
 class VenuesAPIClient {
@@ -34,14 +35,13 @@ class VenuesAPIClient {
 
             //クライアントへのアクセス
             //MEMO 2018/06/05: requestメソッドのハンドリング処理部分を書き換えています。
-            client.request(path: "venues/search", parameter: parameter) {
-                result in
+            client.request(path: "venues/search", parameter: parameter) { [weak self] result in
 
                 switch result {
                 case .success(let data):
                     //APIのJSONを解析する
                     let json = try! JSON(data: data)
-                    let venues = self.parse(venuesJSON: json["response"]["venues"])
+                    let venues = self?.parse(venuesJSON: json["response"]["venues"]) ?? []
 
                     //パースしてきたjsonの値を通知対象にする
                     //(参考)RxSwiftの動作を深く理解する

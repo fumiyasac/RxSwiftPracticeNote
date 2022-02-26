@@ -75,7 +75,7 @@ class VenueSearchViewController: UIViewController {
     }
     
     //データ表示用のテーブルビュー内にForesquareから取得した情報を表示する
-    fileprivate func setupRx() {
+    private func setupRx() {
 
         //配置したテーブルビューにデリゲートの適用をする
         venueSearchTableView.delegate = self.venueDelegate
@@ -87,10 +87,10 @@ class VenueSearchViewController: UIViewController {
         //検索バーの変化から0.5秒後に.driveメソッド内の処理を実行する
         venueSearchBar.rx.text.asObservable()
             .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext: { query in
+            .subscribe(onNext: { [weak self] query in
                 
                 //ViewModelに定義したfetchメソッドを実行
-                self.venueViewModel.fetch(query: query!)
+                self?.venueViewModel.fetch(query: query!)
             })
             .disposed(by: disposeBag)
         
@@ -192,5 +192,4 @@ class VenueSearchViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 }
